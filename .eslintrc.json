@@ -28,7 +28,6 @@
         "react/function-component-definition": "off",
         "react/jsx-filename-extension": "off",
         "jsx-quotes": [2, "prefer-double"]
-
     }
     
 }
