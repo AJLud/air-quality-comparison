@@ -29,16 +29,15 @@ const containerVariants = {
 
 const containerTransition = { type: 'string', damping: 22, stiffness: 150 };
 
-const SearchBar: React.FunctionComponent = () => {
+interface Props {
+  setSelectedCity: React.Dispatch<React.SetStateAction<Record<string, unknown>>>;
+}
+
+const SearchBar: React.FunctionComponent<Props> = ({ setSelectedCity }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [cities, setCities] = useState<any[]>();
   const [parentRef, isClickedOutside] = useClickOutside();
-
-  const searchHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    e.preventDefault();
-    setSearchQuery(e.target.value);
-  };
 
   const expandContainer = (): void => {
     setIsExpanded(true);
@@ -47,6 +46,17 @@ const SearchBar: React.FunctionComponent = () => {
   const collapseContainer = (): void => {
     setIsExpanded(false);
     setSearchQuery('');
+  };
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    e.preventDefault();
+    setSearchQuery(e.target.value);
+  };
+
+  const handleCitySelection = (e: React.MouseEvent<HTMLLIElement>): void => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore:next-line
+    setSelectedCity(e.target.innerText);
+    collapseContainer();
   };
 
   useEffect(() => {
@@ -78,7 +88,7 @@ const SearchBar: React.FunctionComponent = () => {
           placeholder="Enter city name..."
           onFocus={expandContainer}
           value={searchQuery}
-          onChange={searchHandler}
+          onChange={handleSearch}
         />
         <AnimatePresence>
           {isExpanded && (
@@ -102,7 +112,7 @@ const SearchBar: React.FunctionComponent = () => {
             {cities
               ?.filter((city) => city.city.toLowerCase().startsWith(searchQuery.toLowerCase()))
               .map((city) => (
-                <CityContainer>
+                <CityContainer key={city.city} value={city.city} onClick={handleCitySelection}>
                   <Name>{city.city}</Name>
                 </CityContainer>
               ))}

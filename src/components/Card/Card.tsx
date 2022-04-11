@@ -11,6 +11,7 @@ const CardContainer = styled.div`
   margin: 40px;
   display: flex;
   justify-content: space-between;
+  transition: all 1s ease-in;
 `;
 
 const CloseIcon = styled(motion.span)`
@@ -60,18 +61,41 @@ const Values = styled.h4`
   font-weight: 600;
 `;
 
-const Card: React.FunctionComponent = () => (
-  <CardContainer>
-    <CardInfo>
-      <LastUpdated>UPDATED AN HOUR AGO</LastUpdated>
-      <City>Manchester Piccadilly</City>
-      <Location>in Manchester, United Kingdom</Location>
-      <Values>Values: PM25: 9, SO2: 32, O3: 8, NO2: 43</Values>
-    </CardInfo>
-    <CloseIcon>
-      <IoClose />
-    </CloseIcon>
-  </CardContainer>
-);
+interface Props {
+  cityData: any;
+}
+
+const Card: React.FunctionComponent<Props> = ({ cityData }) => {
+  console.log(cityData[0]);
+  return (
+    cityData[0] && (
+      <CardContainer>
+        <CardInfo>
+          <LastUpdated>UPDATED AN HOUR AGO</LastUpdated>
+          <City>{cityData[0].location}</City>
+          <Location>{`in ${cityData[0].city}, United Kingdom`}</Location>
+          <Values>
+            {' '}
+            Values:
+            {cityData[0].measurements?.map((element: any) => (
+              <>
+                {cityData[0].measurements[0] === element
+                  ? ` ${element.parameter.toUpperCase()}`
+                  : element.parameter.toUpperCase()}
+                :
+                {cityData[0].measurements[cityData[0].measurements.length - 1] !== element
+                  ? ` ${element.value},`
+                  : ` ${element.value}`}
+              </>
+            ))}
+          </Values>
+        </CardInfo>
+        <CloseIcon>
+          <IoClose />
+        </CloseIcon>
+      </CardContainer>
+    )
+  );
+};
 
 export default Card;
