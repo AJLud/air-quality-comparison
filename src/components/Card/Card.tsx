@@ -23,25 +23,27 @@ const Card: React.FunctionComponent<Props> = ({ cityData, setCitySelection, city
     setCitySelection([...filterDeletedCity]);
   };
 
-  const lastUpdatedFormatted = moment(cityData?.measurements[0]).fromNow().toUpperCase();
+  const { location, city, measurements } = cityData;
+
+  const lastUpdatedFormatted = moment(measurements[0]).fromNow().toUpperCase();
 
   return (
     cityData && (
       <CardContainer>
         <CardInfo>
           <LastUpdated>{lastUpdatedFormatted}</LastUpdated>
-          <City>{cityData?.location}</City>
-          <Location>{`in ${cityData?.city}, United Kingdom`}</Location>
+          <City>{location}</City>
+          <Location>{`in ${city}, United Kingdom`}</Location>
           <Values>
             {' '}
             Values:
-            {cityData?.measurements?.map((measurement: any) => (
+            {measurements?.map((measurement: any) => (
               <>
-                {cityData.measurements === measurement
+                {measurements === measurement
                   ? `${measurement.parameter.toUpperCase()}`
                   : measurement.parameter.toUpperCase()}
                 :
-                {cityData.measurements[cityData.measurements.length - 1] !== measurement
+                {measurements[measurements.length - 1] !== measurement
                   ? ` ${measurement.value}, `
                   : ` ${measurement.value} `}
               </>
