@@ -1,97 +1,55 @@
 import React from 'react';
-import styled from 'styled-components';
 import { IoClose } from 'react-icons/io5';
-import { motion } from 'framer-motion';
-
-const CardContainer = styled.div`
-  height: 240px;
-  width: 600px;
-  background-color: white;
-  border-radius: 10px;
-  margin: 40px;
-  display: flex;
-  justify-content: space-between;
-  transition: all 1s ease-in;
-`;
-
-const CloseIcon = styled(motion.span)`
-  position: relative;
-  color: black;
-  font-size: 45px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 6px;
-  right: 0px;
-  top: 0px;
-
-  &:hover {
-    color: #b8b8b8;
-  }
-`;
-
-const CardInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 40px;
-`;
-const LastUpdated = styled.h4`
-  margin: 5px;
-  color: black;
-  font-size: 1.2rem;
-  font-weight: 600;
-`;
-const City = styled.h3`
-  margin: 5px;
-  color: rgba(118, 57, 176, 1);
-  font-size: 1.9rem;
-  font-weight: 700;
-`;
-const Location = styled.h4`
-  margin: 5px;
-  color: black;
-  font-size: 1.5rem;
-  font-weight: 400;
-`;
-
-const Values = styled.h4`
-  margin: 5px;
-  color: black;
-  font-size: 1.5rem;
-  font-weight: 600;
-`;
+import moment from 'moment';
+import {
+  CardContainer,
+  CardInfo,
+  LastUpdated,
+  City,
+  Location,
+  Values,
+  CloseIcon,
+} from './CardStyles';
 
 interface Props {
   cityData: any;
+  citySelection: any;
+  setCitySelection: any;
 }
 
-const Card: React.FunctionComponent<Props> = ({ cityData }) => {
-  console.log(cityData[0]);
+const Card: React.FunctionComponent<Props> = ({ cityData, setCitySelection, citySelection }) => {
+  const handleDelete = () => {
+    const filterDeletedCity = citySelection.filter((city: any) => city?.city !== cityData?.city);
+    setCitySelection([...filterDeletedCity]);
+  };
+
+  const lastUpdatedFormatted = moment(cityData?.measurements[0]).fromNow().toUpperCase();
+
   return (
-    cityData[0] && (
+    cityData && (
       <CardContainer>
         <CardInfo>
-          <LastUpdated>UPDATED AN HOUR AGO</LastUpdated>
-          <City>{cityData[0].location}</City>
-          <Location>{`in ${cityData[0].city}, United Kingdom`}</Location>
+          <LastUpdated>{lastUpdatedFormatted}</LastUpdated>
+          <City>{cityData?.location}</City>
+          <Location>{`in ${cityData?.city}, United Kingdom`}</Location>
           <Values>
             {' '}
             Values:
-            {cityData[0].measurements?.map((element: any) => (
+            {cityData?.measurements?.map((measurement: any) => (
               <>
-                {cityData[0].measurements[0] === element
-                  ? ` ${element.parameter.toUpperCase()}`
-                  : element.parameter.toUpperCase()}
+                {cityData.measurements === measurement
+                  ? `${measurement.parameter.toUpperCase()}`
+                  : measurement.parameter.toUpperCase()}
                 :
-                {cityData[0].measurements[cityData[0].measurements.length - 1] !== element
-                  ? ` ${element.value},`
-                  : ` ${element.value}`}
+                {cityData.measurements[cityData.measurements.length - 1] !== measurement
+                  ? ` ${measurement.value}, `
+                  : ` ${measurement.value} `}
               </>
             ))}
           </Values>
         </CardInfo>
         <CloseIcon>
-          <IoClose />
+          <IoClose onClick={handleDelete} />
         </CloseIcon>
       </CardContainer>
     )
