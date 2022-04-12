@@ -36,7 +36,7 @@ const SearchBar: React.FunctionComponent<Props> = ({ setSelectedCity }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [cities, setCities] = useState<any[]>();
-  const [parentRef, isClickedOutside] = useClickOutside();
+  const [ref, isClickedOutside] = useClickOutside();
 
   const expandContainer = (): void => {
     setIsExpanded(true);
@@ -71,7 +71,7 @@ const SearchBar: React.FunctionComponent<Props> = ({ setSelectedCity }) => {
       animate={isExpanded ? 'expanded' : 'collapsed'}
       variants={containerVariants}
       transition={containerTransition}
-      ref={parentRef}
+      ref={ref}
     >
       <SearchInputContainer>
         <SearchIcon>
@@ -103,10 +103,10 @@ const SearchBar: React.FunctionComponent<Props> = ({ setSelectedCity }) => {
         <SearchContent>
           <CityList>
             {cities
-              ?.filter((city) => city?.city?.toLowerCase().startsWith(searchQuery.toLowerCase()))
-              ?.map((city) => (
-                <CityContainer key={city?.city} value={city?.city} onClick={handleCitySelection}>
-                  <Name>{city?.city}</Name>
+              ?.filter(({ city }) => city?.toLowerCase().startsWith(searchQuery.toLowerCase()))
+              ?.map(({ city }) => (
+                <CityContainer key={city} value={city} onClick={handleCitySelection}>
+                  <Name>{city}</Name>
                 </CityContainer>
               ))}
           </CityList>
