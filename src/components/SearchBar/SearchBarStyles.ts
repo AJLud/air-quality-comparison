@@ -7,11 +7,14 @@ export const SearchBarContainer = styled(motion.div)`
   width: 34rem;
   height: 3.8em;
   background-color: white;
-  border-radius: 6px;
+  border-radius: 12px;
   box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.14);
   overflow: hidden;
   margin: 70px 0px;
   border: solid grey 2px;
+  @media screen and (max-width: 630px) {
+    width: 90%;
+  }
 `;
 
 export const SearchInputContainer = styled.div`
