@@ -38,7 +38,7 @@ const Card: React.FunctionComponent<Props> = ({ cityData, setCitySelection, city
             {' '}
             Values:
             {measurements?.map((measurement: any) => (
-              <>
+              <React.Fragment key={measurement.parameter}>
                 {measurements === measurement
                   ? `${measurement.parameter.toUpperCase()}`
                   : measurement.parameter.toUpperCase()}
@@ -46,7 +46,7 @@ const Card: React.FunctionComponent<Props> = ({ cityData, setCitySelection, city
                 {measurements[measurements.length - 1] !== measurement
                   ? ` ${measurement.value}, `
                   : ` ${measurement.value} `}
-              </>
+              </React.Fragment>
             ))}
           </Values>
         </CardInfo>
