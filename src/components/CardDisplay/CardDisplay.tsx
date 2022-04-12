@@ -11,12 +11,18 @@ const CardDisplayContainer = styled.div`
 
 interface Props {
   citySelection: any;
+  setCitySelection: any;
 }
 
-const CardDisplay: React.FunctionComponent<Props> = ({ citySelection }) => (
+const CardDisplay: React.FunctionComponent<Props> = ({ citySelection, setCitySelection }) => (
   <CardDisplayContainer>
     {citySelection?.map((cityData: any) => (
-      <Card cityData={cityData} />
+      <Card
+        key={cityData?.city}
+        cityData={cityData}
+        citySelection={citySelection}
+        setCitySelection={setCitySelection}
+      />
     ))}
   </CardDisplayContainer>
 );
