@@ -11,6 +11,7 @@ export const SearchBarContainer = styled(motion.div)`
   box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.14);
   overflow: hidden;
   margin: 70px 0px;
+  border: solid grey 2px;
 `;
 
 export const SearchInputContainer = styled.div`
@@ -31,6 +32,7 @@ export const SearchInput = styled.input`
   font-weight: 400;
   border-radius: 6px;
   background-color: transparent;
+  font-family: 'Open Sans', sans-serif;
 
   &:focus {
     outline: none;
