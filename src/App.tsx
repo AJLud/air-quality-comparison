@@ -15,7 +15,7 @@ const MainContainer = styled.div`
   min-height: 100%;
   width: 100%;
   background: rgb(118, 57, 176);
-  background: linear-gradient(110deg, rgba(118, 57, 176, 1) 18%, rgba(69, 115, 174, 1) 74%);
+  background: linear-gradient(11i0deg, rgba(118, 57, 176, 1) 18%, rgba(69, 115, 174, 1) 74%);
   overflow: auto;
 `;
 
