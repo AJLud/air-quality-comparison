@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import CardDisplay from './components/CardDisplay/CardDisplay';
 import SearchBar from './components/SearchBar/SearchBar';
 import GlobalStyle from './globalStyles';
