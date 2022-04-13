@@ -11,7 +11,7 @@ export const SearchBarContainer = styled(motion.div)`
   box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.14);
   overflow: hidden;
   margin: 70px 0px;
-  border: solid grey 2px;
+  border: solid #bebebe 3px;
   @media screen and (max-width: 630px) {
     width: 90%;
   }
@@ -51,7 +51,7 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchIcon = styled.span`
-  color: grey;
+  color: #bebebe;
   font-size: 27px;
   margin-left: 10px;
   margin-right: 10px;
@@ -60,7 +60,7 @@ export const SearchIcon = styled.span`
 `;
 
 export const CloseIcon = styled(motion.span)`
-  color: grey;
+  color: #bebebe;
   font-size: 27px;
   margin-left: 10px;
   margin-right: 10px;
@@ -76,7 +76,7 @@ export const Seperator = styled.span`
   display: flex;
   min-width: 100%;
   min-height: 2px;
-  background-color: grey;
+  background-color: #bebebe;
 `;
 
 export const SearchContent = styled.div`
