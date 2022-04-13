@@ -66,9 +66,10 @@ export const CloseIcon = styled(motion.span)`
   margin-right: 10px;
   margin-top: 6px;
   vertical-align: middle;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: #b8b8b8;
+    color: grey;
   }
 `;
 
