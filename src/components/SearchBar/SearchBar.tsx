@@ -14,7 +14,7 @@ import {
   CityList,
   Name,
   CityContainer,
-} from './SearchBarStyles';
+} from './SearchBar.styles';
 
 const containerVariants = {
   expanded: {
@@ -52,6 +52,7 @@ const SearchBar: React.FunctionComponent<Props> = ({ setSelectedCity }) => {
   };
 
   const handleLocationSelection = (e: React.MouseEvent<HTMLLIElement>): void => {
+    // Possible incorrect React.Event type?
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore:next-line
     setSelectedCity(e.target?.innerText);
@@ -72,6 +73,7 @@ const SearchBar: React.FunctionComponent<Props> = ({ setSelectedCity }) => {
       variants={containerVariants}
       transition={containerTransition}
       ref={ref}
+      data-testid="SearchBar"
     >
       <SearchInputContainer>
         <SearchIcon>

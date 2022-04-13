@@ -9,7 +9,7 @@ import {
   Location,
   Values,
   CloseIcon,
-} from './CardStyles';
+} from './Card.styles';
 
 interface Props {
   locationData: LocationResponse;
@@ -39,7 +39,7 @@ const Card: React.FunctionComponent<Props> = ({
     .toUpperCase();
 
   return (
-    <CardContainer>
+    <CardContainer data-testid="Card">
       <CardInfo>
         <LastUpdated>{lastUpdatedFormatted}</LastUpdated>
         <Location>{location}</Location>

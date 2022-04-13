@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar matches snapshot 1`] = `
+<div
+  class="sc-bczRLJ iqMnOt"
+  data-testid="Card"
+>
+  <div
+    class="sc-dkzDqf hkfOnF"
+  >
+    <h4
+      class="sc-hKMtZM oUMZu"
+    >
+      12 HOURS AGO
+    </h4>
+    <h3
+      class="sc-eCYdqJ kZfHnh"
+    >
+      Salford Eccles
+    </h3>
+    <h4
+      class="sc-jSMfEi cetBCV"
+    >
+      in Manchester, United Kingdom
+    </h4>
+    <h4
+      class="sc-gKXOVf fWIEzK"
+    >
+      Values: PM25: 24 NO2: 18 PM10: 32
+    </h4>
+  </div>
+  <span
+    class="sc-gsnTZi dOilkS"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 512 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+      />
+    </svg>
+  </span>
+</div>
+`;
