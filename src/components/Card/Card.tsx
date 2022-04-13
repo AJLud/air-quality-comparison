@@ -27,34 +27,23 @@ const Card: React.FunctionComponent<Props> = ({ cityData, setCitySelection, city
 
   const lastUpdatedFormatted = moment(measurements[0]).fromNow().toUpperCase();
 
+  const measurementValues = measurements
+    .map((measurement: any) => `${measurement.parameter}: ${measurement.value}`)
+    .join(' ')
+    .toUpperCase();
+
   return (
-    cityData && (
-      <CardContainer>
-        <CardInfo>
-          <LastUpdated>{lastUpdatedFormatted}</LastUpdated>
-          <City>{location}</City>
-          <Location>{`in ${city}, United Kingdom`}</Location>
-          <Values>
-            {' '}
-            Values:
-            {measurements?.map((measurement: any) => (
-              <React.Fragment key={measurement.parameter}>
-                {measurements === measurement
-                  ? `${measurement.parameter.toUpperCase()}`
-                  : measurement.parameter.toUpperCase()}
-                :
-                {measurements[measurements.length - 1] !== measurement
-                  ? ` ${measurement.value}, `
-                  : ` ${measurement.value} `}
-              </React.Fragment>
-            ))}
-          </Values>
-        </CardInfo>
-        <CloseIcon>
-          <IoClose onClick={handleDelete} />
-        </CloseIcon>
-      </CardContainer>
-    )
+    <CardContainer>
+      <CardInfo>
+        <LastUpdated>{lastUpdatedFormatted}</LastUpdated>
+        <Location>{location}</Location>
+        <City>{`in ${city}, United Kingdom`}</City>
+        <Values>{`Values: ${measurementValues}`}</Values>
+      </CardInfo>
+      <CloseIcon>
+        <IoClose onClick={handleDelete} />
+      </CloseIcon>
+    </CardContainer>
   );
 };
 

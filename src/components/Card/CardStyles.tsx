@@ -52,7 +52,7 @@ export const LastUpdated = styled.h4`
     font-size: 0.9rem;
   }
 `;
-export const City = styled.h3`
+export const Location = styled.h3`
   margin: 5px;
   color: rgba(118, 57, 176, 1);
   font-size: 1.9rem;
@@ -61,7 +61,7 @@ export const City = styled.h3`
     font-size: 1.3rem;
   }
 `;
-export const Location = styled.h4`
+export const City = styled.h4`
   margin: 5px;
   color: black;
   font-size: 1.5rem;
