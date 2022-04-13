@@ -7,6 +7,7 @@ const CardDisplayContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: row;
+  width: 90%;
 `;
 
 interface Props {
