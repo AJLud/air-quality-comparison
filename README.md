@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Compare your Air by Alex Ludlow
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Live deployment link <----](https://air-quality-comparison.netlify.app/)
 
-## Available Scripts
+<img width="60%" src="./public/imgs/title.png">
 
-In the project directory, you can run:
+### Using the [Open AQ Air Quality API](https://docs.openaq.org/), this React web app allows users to compare air quality across cities in the UK. Project aims include:
 
-### `npm start`
+### The search box to be an autocomplete select input to allow the user to search and select a city, from a list of options. These options will be filtered from a larger list of options, based on the current input;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- ### Upon selection of an item from the search box, a card will appear listing:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- ### The time the statistics were last updated in an easy to read format, e.g. “an hour ago”, “1 day ago”, “6 weeks ago” etc.;
 
-### `npm test`
+- ### The location name;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ### The city name and country;
 
-### `npm run build`
+- ### The air quality values at time of retrieval, as detailed in the design.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ### Additionally, each card should have a remove call-to-action in the top right corner, which removes the card when clicked.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Built with
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ## React;
+- ## Styled Components;
+- ## framer-motion;
+- ## TypeScript;
+- ## Axios;
+- ## Moment.js;
+- ## React testing library;
+- ## Netlify
 
-### `npm run eject`
+# Preview
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Desktop:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="60%" src="./public/imgs/desktopClean.png">
+<img width="60%" src="./public/imgs/desktopFill.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Tablet:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img width="60%" src="./public/imgs/tabletFill.png">
 
-## Learn More
+## Mobile:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="./public/imgs/mobileFill.png">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## By Alex Ludlow
