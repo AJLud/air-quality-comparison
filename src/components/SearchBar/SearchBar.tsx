@@ -35,7 +35,7 @@ interface Props {
 const SearchBar: React.FunctionComponent<Props> = ({ setSelectedCity }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const [cities, setCities] = useState<any[]>();
+  const [cities, setCities] = useState<CityResponse[]>();
   const [ref, isClickedOutside] = useClickOutside();
 
   const expandContainer = (): void => {
@@ -51,7 +51,7 @@ const SearchBar: React.FunctionComponent<Props> = ({ setSelectedCity }) => {
     setSearchQuery(e.target.value);
   };
 
-  const handleCitySelection = (e: React.MouseEvent<HTMLLIElement>): void => {
+  const handleLocationSelection = (e: React.MouseEvent<HTMLLIElement>): void => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore:next-line
     setSelectedCity(e.target?.innerText);
@@ -105,7 +105,7 @@ const SearchBar: React.FunctionComponent<Props> = ({ setSelectedCity }) => {
             {cities
               ?.filter(({ city }) => city?.toLowerCase().startsWith(searchQuery.toLowerCase()))
               ?.map(({ city }) => (
-                <CityContainer key={city} value={city} onClick={handleCitySelection}>
+                <CityContainer key={city} value={city} onClick={handleLocationSelection}>
                   <Name>{city}</Name>
                 </CityContainer>
               ))}

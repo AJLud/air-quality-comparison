@@ -58,11 +58,11 @@ const SubTitle = styled.h2`
 `;
 
 const App: React.FunctionComponent = () => {
-  const [citySelection, setCitySelection] = useState([]);
+  const [locationSelection, setLocationSelection] = useState<LocationResponse[]>([]);
   const [selectedCity, setSelectedCity] = useState<string>('');
 
   useEffect(() => {
-    if (selectedCity !== '') getLocationData(selectedCity, setCitySelection);
+    if (selectedCity !== '') getLocationData(selectedCity, setLocationSelection);
   }, [selectedCity]);
 
   return (
@@ -74,7 +74,10 @@ const App: React.FunctionComponent = () => {
         <SubTitle>Select cities to compare using the search tool below.</SubTitle>
       </SubTitleContainer>
       <SearchBar setSelectedCity={setSelectedCity} />
-      <CardDisplay citySelection={citySelection} setCitySelection={setCitySelection} />
+      <CardDisplay
+        locationSelection={locationSelection}
+        setLocationSelection={setLocationSelection}
+      />
     </MainContainer>
   );
 };

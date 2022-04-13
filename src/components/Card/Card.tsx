@@ -12,23 +12,29 @@ import {
 } from './CardStyles';
 
 interface Props {
-  cityData: any;
-  citySelection: any;
-  setCitySelection: any;
+  locationData: LocationResponse;
+  locationSelection: LocationResponse[];
+  setLocationSelection: React.Dispatch<React.SetStateAction<LocationResponse[]>>;
 }
 
-const Card: React.FunctionComponent<Props> = ({ cityData, setCitySelection, citySelection }) => {
+const Card: React.FunctionComponent<Props> = ({
+  locationData,
+  setLocationSelection,
+  locationSelection,
+}) => {
   const handleDelete = () => {
-    const filterDeletedCity = citySelection.filter((city: any) => city?.city !== cityData?.city);
-    setCitySelection([...filterDeletedCity]);
+    const filterDeletedCity = locationSelection.filter(
+      (city: LocationResponse) => city?.city !== locationData?.city,
+    );
+    setLocationSelection([...filterDeletedCity]);
   };
 
-  const { location, city, measurements } = cityData;
+  const { location, city, measurements } = locationData;
 
-  const lastUpdatedFormatted = moment(measurements[0]).fromNow().toUpperCase();
+  const lastUpdatedFormatted = moment(measurements[0]?.lastUpdated).fromNow().toUpperCase();
 
   const measurementValues = measurements
-    .map((measurement: any) => `${measurement.parameter}: ${measurement.value}`)
+    .map((measurement: Measurement) => `${measurement.parameter}: ${measurement.value}`)
     .join(' ')
     .toUpperCase();
 
