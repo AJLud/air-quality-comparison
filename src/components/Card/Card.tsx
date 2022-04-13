@@ -24,7 +24,7 @@ const Card: React.FunctionComponent<Props> = ({
 }) => {
   const handleDelete = () => {
     const filterDeletedCity = locationSelection.filter(
-      (city: LocationResponse) => city?.city !== locationData?.city,
+      (location: LocationResponse) => location?.city !== locationData?.city,
     );
     setLocationSelection([...filterDeletedCity]);
   };
@@ -34,7 +34,7 @@ const Card: React.FunctionComponent<Props> = ({
   const lastUpdatedFormatted = moment(measurements[0]?.lastUpdated).fromNow().toUpperCase();
 
   const measurementValues = measurements
-    .map((measurement: Measurement) => `${measurement.parameter}: ${measurement.value}`)
+    .map(({ parameter, value }) => `${parameter}: ${value}`)
     .join(' ')
     .toUpperCase();
 
