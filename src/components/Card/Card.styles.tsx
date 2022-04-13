@@ -13,6 +13,7 @@ export const CardContainer = styled.div`
     width: 90%;
     height: 200px;
     margin: 20px 0;
+    padding: 15px 0;
   }
 `;
 
