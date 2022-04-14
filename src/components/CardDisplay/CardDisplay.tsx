@@ -1,14 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import Card from '../Card/Card';
-
-const CardDisplayContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: row;
-  width: 90%;
-`;
+import CardDisplayContainer from './CardDisplay.styles';
 
 interface Props {
   locationSelection: LocationResponse[];
